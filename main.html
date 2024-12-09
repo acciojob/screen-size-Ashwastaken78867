@@ -1,15 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Window Resize</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen Size</title>
+    <style>
+        #sizeInfo {
+            text-align: center;
+            margin-top: 50px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
 </head>
 <body>
-  <div id="sizeInfo">
-    <h1>Width: 0 and Height: 0</h1>
-  </div>
-  <script src="script.js"></script>
+    <div id="sizeInfo">
+        <h1></h1>
+    </div>
+
+    <script>
+        function updateWindowSize() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const sizeInfo = document.querySelector("#sizeInfo h1");
+            sizeInfo.textContent = `Width: ${width} and Height: ${height}`;
+        }
+
+        updateWindowSize();
+        window.addEventListener("resize", updateWindowSize);
+    </script>
 </body>
 </html>
+
 
